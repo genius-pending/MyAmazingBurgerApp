@@ -1,0 +1,61 @@
+<div class="burgerUI container">
+<div class="row">
+<div class="col-md-12 text-center">
+<h2>My Amazing Burger App!</h2>
+</div>
+
+</div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="text-center">Burger List</h2>
+      <ul class="list-group">
+        {{#each burger}}
+          {{#unless this.devoured}}
+            <li class="list-group-item list-group-item-warning">
+              <span class="text-center">
+                {{this.id}}. {{this.burger_name}}
+                <!--method override to PUT in a form-->
+                <form action="/{{this.id}}?_method=PUT" method="POST">
+                  <input type="hidden" name="id" value="{{this.id}}">
+                  <button class="eatIt" type="submit">Devoure It!</button>
+                </form>
+              </span>
+            </li>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div><!--/column-->
+
+    <div class="col-md-6">
+        <h2 class="text-center">Devoured</h2>
+        <ul class="list-group">
+            {{#each burger}}
+            {{#if this.devoured}}
+              <li class="list-group-item list-group-item-info">
+                  {{this.id}}. {{this.burger_name}}
+                <!--method override to Delete in a form-->
+                <form action="/{{this.id}}?_method=DELETE" method="POST">
+                  <input type="hidden" name="id" value="{{this.id}}">
+                  <button class="deleatIt" type="submit">Delete</button>
+                </form>
+              </li>
+            {{/if}}
+          {{/each}}
+        </ul>
+    </div>
+  </div><!-- /row -->
+  <div class="sumbitRow">
+    <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 class="text-center">Add a burger</h2>
+                      <form method="POST" action="/" class="button">
+                        <textarea class="form-control" rows="1" type="text" name="burger"></textarea>
+                        <button class="submitBurger" type="submit">Save burger!</button>
+                      </form>
+             </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<footer class="footer col-sm-12 bg-dark">
+  <p><span class="text-muted">&copy;Copyright 2020 Shivey Singh</span></p>
+</footer>
