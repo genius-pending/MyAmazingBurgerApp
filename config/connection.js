@@ -2,7 +2,7 @@ let mysql = require("mysql");
 let connection;
 
 //JAWSDB for Heroku deployment
-if (process.env.NODE_ENV === "production") {
+if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
   connection = mysql.createConnection({
