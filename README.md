@@ -12,7 +12,8 @@
 6. Contributors
 7. Questions
 ## Description
-My first ever FullStack application
+My first ever FullStack application the heroku deployed link is https://murmuring-river-91418.herokuapp.com/
+
 ![](https://github.com/genius-pending/MyAmazingBurgerApp/blob/main/public/assets/img/screenshot.png)
 ## Installation
 clone the repo then run npm install to install all the dependancies then in the terminal run node server.jsand in your broswer open localhost:3000 to view the application
